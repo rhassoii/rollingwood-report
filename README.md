@@ -6,8 +6,8 @@ Automated pipeline that watches the [City of Rollingwood YouTube channel](https:
 
 - **Operator:** Ronald Hasso.
 - The Rollingwood Report was created by Jeff Marx and handed off to Ronald Hasso in October 2026.
-- **Contact / corrections:** ronaldhasso@gmail.com, jeffm031@gmail.com
-- **Operator disclosures:** TODO (Ronald Hasso) — to be completed by the operator; see `config/disclosures.yml` and `methodology.md`.
+- **Contact / corrections:** rhassoii@gmail.com, jeffm031@gmail.com
+- **Operator disclosures:** Ronald Hasso reports no affiliations requiring disclosure (as of October 2026).
 
 ## Architecture
 

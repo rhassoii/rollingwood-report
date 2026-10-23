@@ -24,8 +24,7 @@ run it.
   `ANTHROPIC_API_KEY` is set in the shell, Claude Code bills that API key
   instead of Ronald's Claude plan. The keys belong only in the repo's
   `.env`, which the scripts load themselves and git ignores.
-- Never `git push` unless Ronald explicitly says to, and only after the
-  First-day TODOs are done. Also follow `CLAUDE.md` and
+- Never `git push` unless Ronald explicitly says to. Also follow `CLAUDE.md` and
   `SESSION_HYGIENE.md` in the repo.
 
 ## What this is and what it produces
@@ -77,24 +76,11 @@ read agenda PDFs that are scanned images.
 
 Check: `python3.14 --version && ffmpeg -version | head -1 && ocrmypdf --version && deno --version | head -1`
 
-**3. Get the code.** Ronald needs no GitHub account for this.
+**3. Get the code.** No GitHub account needed to download it.
 
-- If Jeff has pushed the handoff commits to GitHub (this file is on
-  <https://github.com/jeffm031/rollingwood-report>):
-
-  ```bash
-  git clone https://github.com/jeffm031/rollingwood-report.git ~/rollingwood-report
-  ```
-
-- If not yet (the handoff is held locally until Ronald reviews it), Jeff
-  sends a file `rollingwood-report.bundle` (made with
-  `git bundle create rollingwood-report.bundle main`). Save it to
-  Downloads, then:
-
-  ```bash
-  git clone ~/Downloads/rollingwood-report.bundle ~/rollingwood-report
-  git -C ~/rollingwood-report remote set-url origin https://github.com/jeffm031/rollingwood-report.git
-  ```
+```bash
+git clone https://github.com/jeffm031/rollingwood-report.git ~/rollingwood-report
+```
 
 If macOS offers to install "command line developer tools" for `git`,
 accept and re-run.
@@ -263,26 +249,19 @@ after the review checklist.
 - After either, run `.venv/bin/python tests/test_roster.py`, then commit
   the roster changes (Claude Code can do this for you).
 
-## First-day TODOs for Ronald
+## Pushing changes to GitHub
 
-1. Confirm your name and email in `README.md` ("Operator & contact") and
-   `methodology.md` (top, and "How to contact and submit corrections").
-2. Complete your operator disclosures in `config/disclosures.yml` and the
-   `STANDING_DISCLOSURE` block of `methodology.md`. Nothing has been
-   written on your behalf. Also review the first-person commitments in
-   `methodology.md` and adopt or revise them, then remove the TODO
-   notes.
-3. Then push. That needs a GitHub account and write access: create an
-   account at <https://github.com>, ask Jeff to add you as a
-   collaborator on `jeffm031/rollingwood-report`, then:
+Ronald's GitHub username is **rhassoii**. To push roster updates or
+other commits, Jeff adds `rhassoii` as a collaborator on
+`jeffm031/rollingwood-report`; then, once:
 
-   ```bash
-   brew install gh
-   gh auth login
-   cd ~/rollingwood-report && git push
-   ```
+```bash
+brew install gh
+gh auth login
+```
 
-   Or ask Jeff to push for you once you've confirmed.
+After that, `cd ~/rollingwood-report && git push` (or ask Claude Code to
+commit and push — it will confirm with you first).
 
 ## What you can ignore
 

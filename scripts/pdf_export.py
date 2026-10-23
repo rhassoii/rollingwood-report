@@ -196,7 +196,7 @@ _HTML_TEMPLATE = """<!DOCTYPE html>
   <strong>How this report is prepared.</strong> This report is compiled from the
   public recording of the meeting using AI-assisted transcription and
   summarization. Errors are possible; the official record is the City's archived
-  video. Feedback: ronaldhasso@gmail.com, jeffm031@gmail.com
+  video. Feedback: rhassoii@gmail.com, jeffm031@gmail.com
 </div>
 <span style="string-set: meetingdate '{meeting_date}'"></span>
 {body}

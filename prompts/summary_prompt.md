@@ -9,7 +9,7 @@ Produce a Markdown report. Begin with a one-line disclosure banner, then a one-l
 ## Disclosure banner
 The very first line of the report, above the dateline — it carries no section heading of its own. Reproduce this italicized line verbatim:
 
-*AI-generated summary — errors expected; the meeting recording is authoritative. Submit corrections to ronaldhasso@gmail.com or jeffm031@gmail.com. Methodology: https://github.com/jeffm031/rollingwood-report/blob/main/methodology.md*
+*AI-generated summary — errors expected; the meeting recording is authoritative. Submit corrections to rhassoii@gmail.com or jeffm031@gmail.com. Methodology: https://github.com/jeffm031/rollingwood-report/blob/main/methodology.md*
 
 ## Provenance line
 Directly below the disclosure banner and above the dateline, with no section heading. Reproduce this line verbatim:

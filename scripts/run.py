@@ -46,7 +46,7 @@ STATE_FILE = Path("processed_meetings.json")
 PROMPT_FILE = Path("prompts/summary_prompt.md")
 WORK_DIR = Path("workdir")
 DRIVE_FOLDER_NAME = "Rollingwood Reports"
-EMAIL_TO = "ronaldhasso@gmail.com, jeffm031@gmail.com"  # operator first
+EMAIL_TO = "rhassoii@gmail.com, jeffm031@gmail.com"  # operator first
 
 # Only process videos whose title matches these (case-insensitive)
 MEETING_TITLE_KEYWORDS = [

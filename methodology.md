@@ -143,8 +143,7 @@ affiliations that touch municipal matters — are tracked in
 issue is planned but not yet implemented.
 
 <!-- STANDING_DISCLOSURE_START -->
-TODO (Ronald Hasso): operator disclosures to be completed by the
-operator. Until then, no operator disclosures are published.
+Ronald Hasso reports no affiliations requiring disclosure (as of October 2026).
 <!-- STANDING_DISCLOSURE_END -->
 
 <!-- Implementation note for render_disclosures() in scripts/run.py
@@ -200,4 +199,4 @@ in the roster, I'll confirm the correct spelling and add it to Tier 4
 (learned names) so the same error doesn't recur.
 
 For non-urgent feedback or questions unrelated to a specific issue:
-<ronaldhasso@gmail.com> or <jeffm031@gmail.com>.
+<rhassoii@gmail.com> or <jeffm031@gmail.com>.
