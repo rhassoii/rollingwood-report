@@ -71,7 +71,7 @@ especially for speakers who don't appear often. A roster of canonical
 names reduces that. The roster has four tiers: current officials
 scraped from the City directory (Tier 1, extended to adjacent bodies
 like West Lake Hills via TML city directories), historical public
-speakers from the last 24 months of meeting packets (Tier 2), property
+speakers from meeting packets since April 2024 (Tier 2), property
 owners in Rollingwood from Travis County appraisal data (Tier 3,
 likely residents), and names learned from past summaries via reader
 correction (Tier 4). The roster is cross-referenced by the pipeline
