@@ -1,6 +1,6 @@
 # Rollingwood Report
 
-Automated pipeline that watches the [City of Rollingwood YouTube channel](https://www.youtube.com/@cityofrollingwoodtexas), transcribes new council/commission meetings, and emails a structured briefing to the operator. Runs daily in GitHub Actions.
+Automated pipeline that watches the [City of Rollingwood YouTube channel](https://www.youtube.com/@cityofrollingwoodtexas), transcribes new council/commission meetings, and emails a structured briefing to the operator. Designed to run daily in GitHub Actions; no workflow is deployed today — meetings are run locally with `scripts/test_local.py` (see HANDOFF.md).
 
 ## Operator & contact
 

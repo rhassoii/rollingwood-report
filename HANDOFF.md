@@ -249,6 +249,14 @@ after the review checklist.
 - After either, run `.venv/bin/python tests/test_roster.py`, then commit
   the roster changes (Claude Code can do this for you).
 
+## First-day check for Ronald
+
+- Review your disclosure wording in `methodology.md` (the
+  `STANDING_DISCLOSURE` block under "Operator and disclosures"); it
+  matches `config/disclosures.yml` and `README.md`. While there, read the
+  first-person commitments and remove the TODO note at the top once you
+  adopt or revise them.
+
 ## Pushing changes to GitHub
 
 Ronald's GitHub username is **rhassoii**. To push roster updates or

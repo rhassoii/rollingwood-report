@@ -38,7 +38,9 @@ prompt.
 
 ## How the pipeline works
 
-The pipeline runs daily in GitHub Actions. Each stage is automated:
+The pipeline is run by the operator for each meeting. (An automated
+daily GitHub Actions version exists in `scripts/run.py` but is not
+currently deployed.) Each stage is automated:
 
 1. **Check for new meetings.** Watch the Rollingwood YouTube channel for
    newly posted videos matching municipal-meeting keywords.
