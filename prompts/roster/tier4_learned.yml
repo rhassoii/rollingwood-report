@@ -36,3 +36,96 @@
   source: tier4
   confidence: learned
   jurisdiction: Rollingwood
+
+# Former Comprehensive Plan Strike Force members — moved from Tier 1 on
+# 2026-10-23 when the city marked the committee inactive.
+
+- canonical_name: Chris Braden
+  first: Chris
+  last: Braden
+  aliases: []
+  role: Former member, Comprehensive Plan Strike Force (inactive)
+  source: tier4
+  confidence: learned
+  jurisdiction: Rollingwood
+
+- canonical_name: David Raymond
+  first: David
+  last: Raymond
+  aliases: []
+  role: Former member, Comprehensive Plan Strike Force (inactive)
+  source: tier4
+  confidence: learned
+  jurisdiction: Rollingwood
+
+- canonical_name: David Smith
+  first: David
+  last: Smith
+  aliases: []
+  role: Former member, Comprehensive Plan Strike Force (inactive)
+  source: tier4
+  confidence: learned
+  jurisdiction: Rollingwood
+
+- canonical_name: Drew Flahive
+  first: Drew
+  last: Flahive
+  aliases: []
+  role: Former member, Comprehensive Plan Strike Force (inactive)
+  source: tier4
+  confidence: learned
+  jurisdiction: Rollingwood
+
+- canonical_name: Jeffrey Green
+  first: Jeffrey
+  last: Green
+  aliases: []
+  role: Former member, Comprehensive Plan Strike Force (inactive)
+  source: tier4
+  confidence: learned
+  jurisdiction: Rollingwood
+
+- canonical_name: Meredith Knight
+  first: Meredith
+  last: Knight
+  aliases: []
+  role: Former member, Comprehensive Plan Strike Force (inactive)
+  source: tier4
+  confidence: learned
+  jurisdiction: Rollingwood
+
+- canonical_name: Mohit Goyal
+  first: Mohit
+  last: Goyal
+  aliases: []
+  role: Former member, Comprehensive Plan Strike Force (inactive)
+  source: tier4
+  confidence: learned
+  jurisdiction: Rollingwood
+
+- canonical_name: Ronald Hasso
+  first: Ronald
+  last: Hasso
+  aliases: []
+  role: Former member, Comprehensive Plan Strike Force (inactive)
+  source: tier4
+  confidence: learned
+  jurisdiction: Rollingwood
+
+- canonical_name: Ryan Clinton
+  first: Ryan
+  last: Clinton
+  aliases: []
+  role: Former member, Comprehensive Plan Strike Force (inactive)
+  source: tier4
+  confidence: learned
+  jurisdiction: Rollingwood
+
+- canonical_name: Wallace Graner
+  first: Wallace
+  last: Graner
+  aliases: []
+  role: Former member, Comprehensive Plan Strike Force (inactive)
+  source: tier4
+  confidence: learned
+  jurisdiction: Rollingwood

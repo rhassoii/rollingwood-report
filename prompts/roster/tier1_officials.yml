@@ -19,18 +19,18 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Abel Campos
   first: Abel
   last: Campos
   aliases: []
-  role: Director of Finance
+  role: Finance Director
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Alun Thomas
   first: Alun
   last: Thomas
@@ -41,25 +41,25 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Amy Pattillo
   first: Amy
   last: Pattillo
   aliases:
-  - Amy Patillo
   - Amy Petillo
   - Amy Pitillo
-  - Amy Poltillo
-  - Patillo
+  - Amy Patillo
   - Petillo
   - Pitillo
+  - Patillo
+  - Amy Poltillo
   role: BOA Member
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-boa
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/293/Board-of-Adjustment
+  scraped_at: '2026-10-23'
 - canonical_name: Arun Natesan
   first: Arun
   last: Natesan
@@ -68,28 +68,18 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-corp
-  scraped_at: '2026-04-17'
-- canonical_name: Barry Delcambre
-  first: Barry
-  last: Delcambre
-  aliases: []
-  role: RCDC Member
-  source: tier1
-  confidence: rollingwood_official
-  jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-corp
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/288/RollingwoodCommunity-Development-Corpora
+  scraped_at: '2026-10-23'
 - canonical_name: Ben Bishop
   first: Ben
   last: Bishop
   aliases: []
-  role: Officer
+  role: Police Officer
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Beth South
   first: Beth
   last: South
@@ -110,8 +100,18 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-corp
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/288/RollingwoodCommunity-Development-Corpora
+  scraped_at: '2026-10-23'
+- canonical_name: Brad Walters
+  first: Brad
+  last: Walters
+  aliases: []
+  role: RCDC Member
+  source: tier1
+  confidence: rollingwood_official
+  jurisdiction: Rollingwood
+  source_url: https://www.rollingwoodtx.gov/288/RollingwoodCommunity-Development-Corpora
+  scraped_at: '2026-10-23'
 - canonical_name: Brian Plunkett
   first: Brian
   last: Plunkett
@@ -127,26 +127,26 @@
   last: Rider
   aliases:
   - Brian Ryder
-  - Brider Rider
   - Ryder
+  - Brider Rider
   role: RCDC President; CRCR Vice Chair
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-corp
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/288/RollingwoodCommunity-Development-Corpora
+  scraped_at: '2026-10-23'
 - canonical_name: Brook Brown
   first: Brook
   last: Brown
   aliases:
   - Brooke Brown
   - Brooke
-  role: Council Member; CPSF member (appointed by Hutson)
+  role: Council Member
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Carlos Bolaños
   first: Carlos
   last: Bolaños
@@ -155,8 +155,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Cathy Casey
   first: Cathy
   last: Casey
@@ -165,18 +165,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-corp
-  scraped_at: '2026-04-17'
-- canonical_name: Chris Braden
-  first: Chris
-  last: Braden
-  aliases: []
-  role: CPSF member (BOA delegate)
-  source: tier1
-  confidence: rollingwood_official
-  jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-cpsf
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/288/RollingwoodCommunity-Development-Corpora
+  scraped_at: '2026-10-23'
 - canonical_name: Chris Kirksey
   first: Chris
   last: Kirksey
@@ -185,20 +175,20 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-uc
-  scraped_at: '2026-04-17'
-- canonical_name: Christpher Meakin
-  first: Christpher
+  source_url: https://www.rollingwoodtx.gov/287/Utility-Commission
+  scraped_at: '2026-10-23'
+- canonical_name: Christopher Meakin
+  first: Christopher
   last: Meakin
   aliases:
+  - Christpher Meakin
   - Chris Meakin
-  - Christopher Meakin
   role: Utility Commission Member
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-uc
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/287/Utility-Commission
+  scraped_at: '2026-10-23'
 - canonical_name: Clark Wilson
   first: Clark
   last: Wilson
@@ -207,8 +197,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-uc
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/287/Utility-Commission
+  scraped_at: '2026-10-23'
 - canonical_name: Dan Arispe
   first: Dan
   last: Arispe
@@ -217,8 +207,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Dana Harmon
   first: Dana
   last: Harmon
@@ -247,18 +237,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pz
-  scraped_at: '2026-04-17'
-- canonical_name: David Raymond
-  first: David
-  last: Raymond
-  aliases: []
-  role: CPSF member (Parks delegate)
-  source: tier1
-  confidence: rollingwood_official
-  jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-cpsf
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/289/Planningand-Zoning
+  scraped_at: '2026-10-23'
 - canonical_name: David Wilson
   first: David
   last: Wilson
@@ -278,28 +258,19 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pc
-  scraped_at: '2026-04-17'
-- canonical_name: Don Bowne
-  first: Don
+  source_url: https://www.rollingwoodtx.gov/290/Park-Commission
+  scraped_at: '2026-10-23'
+- canonical_name: Donald Bowne
+  first: Donald
   last: Bowne
-  aliases: []
+  aliases:
+  - Don Bowne
   role: Reserve Officer
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
-- canonical_name: Drew Flahive
-  first: Drew
-  last: Flahive
-  aliases: []
-  role: CPSF member (appointed by Massingill)
-  source: tier1
-  confidence: rollingwood_official
-  jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-cpsf
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Duke Garwood
   first: Duke
   last: Garwood
@@ -308,8 +279,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-crcr
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/291/Comprehensive-Residential-Code-ReviewCom
+  scraped_at: '2026-10-23'
 - canonical_name: Elizabeth Bray
   first: Elizabeth
   last: Bray
@@ -318,8 +289,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-uc
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/287/Utility-Commission
+  scraped_at: '2026-10-23'
 - canonical_name: Ellin Wilson
   first: Ellin
   last: Wilson
@@ -328,8 +299,18 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-boa
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/293/Board-of-Adjustment
+  scraped_at: '2026-10-23'
+- canonical_name: Erin Penney
+  first: Erin
+  last: Penney
+  aliases: []
+  role: City Secretary
+  source: tier1
+  confidence: rollingwood_official
+  jurisdiction: Rollingwood
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Fidel Ruiz
   first: Fidel
   last: Ruiz
@@ -338,8 +319,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Fred Hartman
   first: Fred
   last: Hartman
@@ -348,8 +329,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-corp
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/288/RollingwoodCommunity-Development-Corpora
+  scraped_at: '2026-10-23'
 - canonical_name: Gavin Massingill
   first: Gavin
   last: Massingill
@@ -362,8 +343,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Genie Nyer
   first: Genie
   last: Nyer
@@ -372,19 +353,20 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pz
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/289/Planningand-Zoning
+  scraped_at: '2026-10-23'
 - canonical_name: Gerald Speitel
   first: Gerald
   last: Speitel
   aliases:
+  - Gerald Speital
   - Jerry Speitel
   role: BOA Chair
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-boa
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/293/Board-of-Adjustment
+  scraped_at: '2026-10-23'
 - canonical_name: Gordon Bowman
   first: Gordon
   last: Bowman
@@ -405,8 +387,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Jaime Silver
   first: Jaime
   last: Silver
@@ -415,12 +397,13 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-boa
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/293/Board-of-Adjustment
+  scraped_at: '2026-10-23'
 - canonical_name: James Vaughan
   first: James
   last: Vaughan
-  aliases: []
+  aliases:
+  - James Vaughn
   role: Mayor
   source: tier1
   confidence: adjacent_official
@@ -435,18 +418,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pz
-  scraped_at: '2026-04-17'
-- canonical_name: Jeffrey Green
-  first: Jeffrey
-  last: Green
-  aliases: []
-  role: CPSF member (appointed by Pattillo)
-  source: tier1
-  confidence: rollingwood_official
-  jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-cpsf
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/289/Planningand-Zoning
+  scraped_at: '2026-10-23'
 - canonical_name: Jennifer Bills
   first: Jennifer
   last: Bills
@@ -467,8 +440,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pz
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/289/Planningand-Zoning
+  scraped_at: '2026-10-23'
 - canonical_name: Jerry Noble
   first: Jerry
   last: Noble
@@ -477,8 +450,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Johnny Coronado
   first: Johnny
   last: Coronado
@@ -487,8 +460,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Jonathan Miller
   first: Jonathan
   last: Miller
@@ -497,42 +470,44 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-uc
-  scraped_at: '2026-04-17'
-- canonical_name: Joshua Mosely
-  first: Joshua
+  source_url: https://www.rollingwoodtx.gov/287/Utility-Commission
+  scraped_at: '2026-10-23'
+- canonical_name: Josh Mosely
+  first: Josh
   last: Mosely
-  aliases: []
-  role: Cadet
+  aliases:
+  - Joshua Mosely
+  role: Police Officer
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Keith Martinson
   first: Keith
   last: Martinson
-  aliases: []
+  aliases:
+  - Keith Martinton
   role: BOA Member
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-boa
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/293/Board-of-Adjustment
+  scraped_at: '2026-10-23'
 - canonical_name: Kevin Glasheen
   first: Kevin
   last: Glasheen
   aliases:
+  - Kevin Glashen
   - Glashen
   - Keivn Glasheen
   - Kevin Glaheen
-  - Kevin Glashen
   role: Council Member
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Kevin Schell
   first: Kevin
   last: Schell
@@ -541,18 +516,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
-- canonical_name: Kimberley Wood
-  first: Kimberley
-  last: Wood
-  aliases: []
-  role: Court Clerk
-  source: tier1
-  confidence: rollingwood_official
-  jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Kristal Muñoz
   first: Kristal
   last: Muñoz
@@ -561,12 +526,12 @@
   - Crystal Muñoz
   - Kristal Munoz
   - Munoz
-  role: Chief of Police
+  role: Police Chief
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Laurie Mills
   first: Laurie
   last: Mills
@@ -575,8 +540,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pc
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/290/Park-Commission
+  scraped_at: '2026-10-23'
 - canonical_name: Leonardo Cantu
   first: Leonardo
   last: Cantu
@@ -585,8 +550,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Lindsay Saenz
   first: Lindsay
   last: Saenz
@@ -595,18 +560,18 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Mackenzie Akin
   first: Mackenzie
   last: Akin
   aliases: []
-  role: Police Administrative Coordinator
+  role: Director of Community Development
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Makayla Rodriguez
   first: Makayla
   last: Rodriguez
@@ -620,13 +585,14 @@
 - canonical_name: Mary Elizabeth Cofer
   first: Mary Elizabeth
   last: Cofer
-  aliases: []
+  aliases:
+  - Mary Elizabeth Coffer
   role: Parks Member
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pc
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/290/Park-Commission
+  scraped_at: '2026-10-23'
 - canonical_name: Melissa Morrow
   first: Melissa
   last: Morrow
@@ -635,18 +601,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pc
-  scraped_at: '2026-04-17'
-- canonical_name: Meredith Knight
-  first: Meredith
-  last: Knight
-  aliases: []
-  role: CPSF at-large member (Westlake Chamber of Commerce)
-  source: tier1
-  confidence: rollingwood_official
-  jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-cpsf
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/290/Park-Commission
+  scraped_at: '2026-10-23'
 - canonical_name: Michael Hall
   first: Michael
   last: Hall
@@ -655,28 +611,22 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pz
-  scraped_at: '2026-04-17'
-- canonical_name: Mohit Goyal
-  first: Mohit
-  last: Goyal
-  aliases: []
-  role: CPSF member (appointed by Shapiro)
-  source: tier1
-  confidence: rollingwood_official
-  jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-cpsf
-  scraped_at: '2026-04-17'
-- canonical_name: Nikki Stautzenberger
+  source_url: https://www.rollingwoodtx.gov/289/Planningand-Zoning
+  scraped_at: '2026-10-23'
+- canonical_name: Nikki Stautzenberger-Praker
   first: Nikki
-  last: Stautzenberger
-  aliases: []
-  role: Development Services Manager
+  last: Stautzenberger-Praker
+  aliases:
+  - Nikki Stautzenberger
+  - Stautzenberger
+  - Nikki Stauzenberger
+  - Nikki Stauztenberger
+  role: Director of Community Development
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Pat Sheehan
   first: Pat
   last: Sheehan
@@ -685,41 +635,44 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-corp
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/288/RollingwoodCommunity-Development-Corpora
+  scraped_at: '2026-10-23'
 - canonical_name: Patricia Barnes
   first: Patricia
   last: Barnes
-  aliases: []
+  aliases:
+  - Pat Barnes
   role: P&Z Member
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pz
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/289/Planningand-Zoning
+  scraped_at: '2026-10-23'
 - canonical_name: Phil McDuffee
   first: Phil
   last: McDuffee
   aliases:
+  - Phil McDuffie
   - McDuffie
   - Phil Mc Duffee
-  - Phil McDuffie
+  - Phil McDufffee
   role: Council Member
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Rhett Bennatt
   first: Rhett
   last: Bennatt
-  aliases: []
+  aliases:
+  - Rhett Bennett
   role: Parks Member
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pc
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/290/Park-Commission
+  scraped_at: '2026-10-23'
 - canonical_name: Richard Hoffman
   first: Richard
   last: Hoffman
@@ -728,8 +681,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-boa
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/293/Board-of-Adjustment
+  scraped_at: '2026-10-23'
 - canonical_name: Robert Martinez
   first: Robert
   last: Martinez
@@ -740,26 +693,6 @@
   jurisdiction: West Lake Hills
   source_url: https://directory.tml.org/profile/city/607
   scraped_at: '2026-04-20'
-- canonical_name: Ronald Hasso
-  first: Ronald
-  last: Hasso
-  aliases: []
-  role: CPSF member (Utility delegate)
-  source: tier1
-  confidence: rollingwood_official
-  jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-cpsf
-  scraped_at: '2026-04-17'
-- canonical_name: Ryan Clinton
-  first: Ryan
-  last: Clinton
-  aliases: []
-  role: CPSF member (appointed by Hundley)
-  source: tier1
-  confidence: rollingwood_official
-  jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-cpsf
-  scraped_at: '2026-04-17'
 - canonical_name: Sam Attal
   first: Sam
   last: Attal
@@ -768,8 +701,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-uc
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/287/Utility-Commission
+  scraped_at: '2026-10-23'
 - canonical_name: Sara Hutson
   first: Sara
   last: Hutson
@@ -778,22 +711,12 @@
   - Sara Hudson
   - Sarah Hudson
   - Hudson
-  role: Council Member
+  role: Mayor Pro Tem
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
-- canonical_name: Sarah Teten
-  first: Sarah
-  last: Teten
-  aliases: []
-  role: Presiding Judge
-  source: tier1
-  confidence: rollingwood_official
-  jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Scott Gerdes
   first: Scott
   last: Gerdes
@@ -812,8 +735,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pc
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/290/Park-Commission
+  scraped_at: '2026-10-23'
 - canonical_name: Susan Hinton
   first: Susan
   last: Hinton
@@ -822,8 +745,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-boa
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/293/Board-of-Adjustment
+  scraped_at: '2026-10-23'
 - canonical_name: Theresa Sanchez
   first: Theresa
   last: Sanchez
@@ -839,12 +762,12 @@
   last: Farrell
   aliases:
   - Tom Farrell
-  role: CPSF Chair; CRCR Member
+  role: CRCR Member
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-cpsf
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/291/Comprehensive-Residential-Code-ReviewCom
+  scraped_at: '2026-10-23'
 - canonical_name: Tony Stein
   first: Tony
   last: Stein
@@ -853,8 +776,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pz
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/289/Planningand-Zoning
+  scraped_at: '2026-10-23'
 - canonical_name: Trey Fletcher
   first: Trey
   last: Fletcher
@@ -884,8 +807,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/directory
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/m/directory
+  scraped_at: '2026-10-23'
 - canonical_name: Victoria Johnson
   first: Victoria
   last: Johnson
@@ -894,8 +817,8 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-pc
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/290/Park-Commission
+  scraped_at: '2026-10-23'
 - canonical_name: Vonda Ragsdale
   first: Vonda
   last: Ragsdale
@@ -906,16 +829,6 @@
   jurisdiction: West Lake Hills
   source_url: https://directory.tml.org/profile/city/607
   scraped_at: '2026-04-20'
-- canonical_name: Wallace Graner
-  first: Wallace
-  last: Graner
-  aliases: []
-  role: CPSF at-large member (The Palisades)
-  source: tier1
-  confidence: rollingwood_official
-  jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-cpsf
-  scraped_at: '2026-04-17'
 - canonical_name: Walt Roloson
   first: Walt
   last: Roloson
@@ -925,5 +838,5 @@
   source: tier1
   confidence: rollingwood_official
   jurisdiction: Rollingwood
-  source_url: https://www.rollingwoodtx.gov/bc-uc
-  scraped_at: '2026-04-17'
+  source_url: https://www.rollingwoodtx.gov/287/Utility-Commission
+  scraped_at: '2026-10-23'
