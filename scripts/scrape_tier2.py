@@ -2,7 +2,10 @@
 """Scrape Tier 2 historical public speakers from Rollingwood meeting packets.
 
 Strategy:
-  - Iterate the /meetings archive over the last 24 months.
+  - Iterate the /meetings archive from WINDOW_START (fixed, so speakers
+    don't age out of the roster as time passes) to today. Since the city's
+    mid-2026 move to CivicPlus, the archive lives on the legacy Drupal host
+    (iframed from rollingwoodtx.gov/244/City-Meetings).
   - For each meeting with a Packet PDF, download it (cached under data/packet_cache/).
   - Packets embed the prior meeting(s)' draft minutes as TEXT (no OCR needed).
   - Find each embedded "MEETING MINUTES" section and its meeting date.
@@ -27,7 +30,7 @@ import re
 import sys
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import urlencode
 
@@ -38,7 +41,12 @@ from urllib.parse import urlencode
 # see NOTES.md for the per-entry packet URL gap.
 TIER2_CONFIDENCE = "historical_speaker"
 TIER2_JURISDICTION = "Rollingwood"
-TIER2_SOURCE_URL = "https://www.rollingwoodtx.gov/meetings"
+TIER2_SOURCE_URL = "https://legacyrollingwoodtx.teammunicode.com/meetings"
+
+# Fixed floor for the meetings archive scan. Was a rolling 24-month window,
+# which silently dropped speakers on every refresh once their last packet
+# aged out. 2024-04-01 covers everything the original 2026-04-21 run saw.
+WINDOW_START = date(2024, 4, 1)
 
 import requests
 import yaml
@@ -48,7 +56,7 @@ from pypdf import PdfReader
 sys.path.insert(0, str(Path(__file__).parent))
 import roster as roster_mod  # noqa: E402
 
-BASE = "https://www.rollingwoodtx.gov"
+BASE = "https://legacyrollingwoodtx.teammunicode.com"
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) "
@@ -202,12 +210,15 @@ T2_MERGE_OVERRIDES: dict = {
 MANUAL_T1_ALIASES: dict = {
     # "Brider" appears in the minutes as a typo of "Brian" (e.g. 2025-10-20)
     "Brian Rider": ["Brider Rider"],
-    # "Chris Meakin" is the shortened form; the site spells it "Christpher"
-    # (with the missing 'o' preserved per the ground-truth rule).
-    "Christpher Meakin": ["Chris Meakin"],
+    # "Chris Meakin" is the shortened form. (The pre-2026 site spelled it
+    # "Christpher"; the CivicPlus site corrected it.)
+    "Christopher Meakin": ["Chris Meakin"],
     # BOA Chair: site directory says "Gerald Speitel"; minutes call him "Jerry".
     # Confirmed same person — both listed in 2025-05-28 BOA minutes simultaneously.
     "Gerald Speitel": ["Jerry Speitel"],
+    # P&Z member; minutes use "Pat", which neither phonetics nor fuzzy match
+    # resolve to "Patricia".
+    "Patricia Barnes": ["Pat Barnes"],
 }
 
 # Candidates that are obviously not people (common bigrams that accidentally
@@ -229,7 +240,10 @@ NON_PERSON_LAST_TOKENS = {
     "ridge", "grove", "oaks", "river", "woods", "lake", "lakes",
     "valle", "union", "annex", "courthouse", "fire", "station",
     "warehouse", "garage", "code", "ordinance", "section",
-    "edition",
+    "edition", "plan",
+    # Function words — a trailing article/preposition means the match ran
+    # past the end of a noun phrase ("Replacement Tree Plan The").
+    "the", "a", "an", "of", "and", "or", "to", "for", "in", "on",
 }
 
 # Rejects the FIRST token from being one of these common nouns — catches
@@ -457,8 +471,9 @@ def is_plausible_name(name: str) -> bool:
     # Last token should look like a surname (cap + lowercase, not a number/roman)
     if re.fullmatch(r"[IVXLCDM]+", parts[-1]):
         return False
-    # Reject if last token is a building/street/body noun (not a surname)
-    if parts[-1].lower() in NON_PERSON_LAST_TOKENS:
+    # Reject if last token is a building/street/body noun (not a surname).
+    # Strip a possessive first so "Zoning Commission's" is caught.
+    if re.sub(r"['’]s$", "", parts[-1].lower()) in NON_PERSON_LAST_TOKENS:
         return False
     # Reject if first token is a common noun that sometimes gets matched
     # as a "first name" by our capital-word pattern
@@ -546,6 +561,13 @@ def _clean_alias(variant: str, canonical: str) -> bool:
     return True
 
 
+def _lookup(name: str):
+    """Roster lookup that ignores the existing Tier 2 file. Without this, a
+    re-run resolves every prior Tier 2 entry against itself, skips it, and
+    --write then drops it from the regenerated file."""
+    return roster_mod.lookup(name, exclude_sources=("tier2",))
+
+
 def _has_tier1_suffix(name: str) -> bool:
     """True if dropping 1..N-2 leading tokens lands on a name that resolves
     to Tier 1. Catches 'Zech Mayor Gavin Massingill', 'Park Commission Laurie
@@ -553,7 +575,7 @@ def _has_tier1_suffix(name: str) -> bool:
     tokens = name.split()
     for i in range(1, max(1, len(tokens) - 1)):
         cand = " ".join(tokens[i:])
-        if len(cand.split()) >= 2 and roster_mod.lookup(cand) is not None:
+        if len(cand.split()) >= 2 and _lookup(cand) is not None:
             return True
     return False
 
@@ -590,7 +612,7 @@ def classify(cands: dict) -> dict:
             tier1_alias_add[canonical].append((name, first_date, len(c.sources)))
             continue
 
-        hit = roster_mod.lookup(name)
+        hit = _lookup(name)
         if hit is not None:
             if hit != name and _clean_alias(name, hit):
                 first_date = min(str(d) for d, _, _ in c.sources)
@@ -701,12 +723,17 @@ def update_tier1_aliases(additions: dict) -> int:
             if new != sorted(current):
                 entry["aliases"] = new
                 added += len(set(new) - current)
-    header = (
-        "# Tier 1 — Current Rollingwood officials (Council, commissioners, staff).\n"
-        "# Auto-generated by scripts/scrape_tier1.py; aliases may be augmented\n"
-        "# by scripts/scrape_tier2.py when historical minutes reveal new variants.\n"
-        "# Source: rollingwoodtx.gov.\n\n"
-    )
+    # Keep the file's existing leading comment block — tier1_officials.yml is
+    # shared by several scrapers and its header documents that contract.
+    header_lines = []
+    for line in TIER1_FILE.read_text().splitlines(keepends=True):
+        if line.startswith("#") or (header_lines and not line.strip()):
+            header_lines.append(line)
+            if not line.strip():
+                break
+        else:
+            break
+    header = "".join(header_lines)
     TIER1_FILE.write_text(
         header + yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=1000)
     )
@@ -721,7 +748,7 @@ def write_tier2(entries: list) -> None:
     header = (
         "# Tier 2 — Historical public speakers from Rollingwood meeting minutes.\n"
         "# Auto-generated by scripts/scrape_tier2.py.\n"
-        "# Source: packet-embedded draft minutes from the last 24 months.\n"
+        f"# Source: packet-embedded draft minutes since {WINDOW_START.isoformat()}.\n"
         "# Re-run with --write to refresh.\n\n"
     )
     TIER2_FILE.write_text(
@@ -736,14 +763,14 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--write", action="store_true",
                     help="Write tier2_historical.yml and update tier1_officials.yml.")
-    ap.add_argument("--months", type=int, default=24,
-                    help="Lookback window in months (default 24).")
+    ap.add_argument("--since", type=date.fromisoformat, default=WINDOW_START,
+                    help=f"Archive scan start date (default {WINDOW_START}).")
     ap.add_argument("--limit", type=int, default=None,
                     help="Cap the number of packets processed (for dev).")
     args = ap.parse_args()
 
     end = date.today()
-    start = (end - timedelta(days=30 * args.months))
+    start = args.since
 
     print(f"🔎 Discovering meetings from {start} to {end}…")
     meetings = discover_meetings(start, end)
@@ -774,7 +801,7 @@ def main() -> int:
             packets_processed += 1
             continue
         for sec_date, s, e in sections:
-            # Skip embedded minutes older than the 24-month window
+            # Skip embedded minutes older than the window start
             # (packets sometimes include historical appendices).
             if sec_date < window_start:
                 continue

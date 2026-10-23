@@ -4,9 +4,14 @@
 Dry-run by default — prints the full extracted roster for review. Use --write to
 commit the result to prompts/roster/tier1_officials.yml.
 
-Sources:
-  - /directory                    (Council + all city staff, grouped by dept)
-  - /bc-pc, /bc-pz, /bc-corp, /bc-boa, /bc-uc, /bc-cpsf, /bc-crcr
+Sources (CivicPlus CivicEngage site, migrated from Drupal mid-2026):
+  - /m/directory                  (Council + all city staff, tagged by dept)
+  - /290, /289, /288, /293, /287, /291 commission pages
+
+--write replaces only jurisdiction=Rollingwood entries in the shared roster
+file. Entries written by other scrapers (scrape_tml.py) are left untouched,
+and aliases already on a Rollingwood entry (e.g. ones appended by
+scrape_tier2.py) are carried forward onto the refreshed entry.
 """
 
 from __future__ import annotations
@@ -15,6 +20,7 @@ import argparse
 import re
 import sys
 from dataclasses import dataclass, field
+from datetime import date
 from pathlib import Path
 
 import requests
@@ -47,7 +53,11 @@ ALIAS_MAP: dict[str, list[str]] = {
     "Bobby Hempfling": ["Bobby Hempling", "Hempling"],
     "Alun Thomas": ["Alan Thomas", "Alan"],
     "Kristal Muñoz": ["Crystal Munoz", "Crystal Muñoz", "Kristal Munoz", "Munoz"],
-    "Christpher Meakin": ["Christopher Meakin"],
+    "Christopher Meakin": ["Christpher Meakin", "Chris Meakin"],  # pre-2026 site typo
+    # Prior site spellings (renames seen in the 2026 CivicPlus migration).
+    "Nikki Stautzenberger-Praker": ["Nikki Stautzenberger", "Stautzenberger"],
+    "Donald Bowne": ["Don Bowne"],
+    "Josh Mosely": ["Joshua Mosely"],
     "Ismael Parra": ["Izzy Parra", "Izzy"],
 }
 
@@ -59,7 +69,6 @@ BODY_ABBREV: dict[str, str] = {
     "RCDC": "RCDC",
     "Board of Adjustment": "BOA",
     "Utility Commission": "Utility Commission",
-    "Comprehensive Plan Strike Force": "CPSF",
     "CRCR": "CRCR",
 }
 
@@ -71,18 +80,23 @@ SURNAME_OVERRIDES: dict[str, tuple[str, str]] = {
 
 # Canonical names to drop from Tier 1 entirely (no longer serving, site stale).
 # These may still appear in Tier 2 when we scrape historical minutes.
-DROP_NAMES: frozenset = frozenset({
-    "David Smith",  # removed from RCDC in early 2026; CPSF listing stale
-})
+DROP_NAMES: frozenset = frozenset()
 
+# The Comprehensive Plan Strike Force (/292) is not scraped: the city marks
+# it inactive. Its former members live in tier4_learned.yml so spellings
+# still resolve.
+
+JURISDICTION = "Rollingwood"
+CONFIDENCE = "rollingwood_official"
+
+DIRECTORY_PATH = "/m/directory"
 COMMISSION_PAGES: list[tuple[str, str]] = [
-    ("/bc-pc", "Parks Commission"),
-    ("/bc-pz", "Planning & Zoning Commission"),
-    ("/bc-corp", "RCDC"),
-    ("/bc-boa", "Board of Adjustment"),
-    ("/bc-uc", "Utility Commission"),
-    ("/bc-cpsf", "Comprehensive Plan Strike Force"),
-    ("/bc-crcr", "CRCR"),
+    ("/290/Park-Commission", "Parks Commission"),
+    ("/289/Planningand-Zoning", "Planning & Zoning Commission"),
+    ("/288/RollingwoodCommunity-Development-Corpora", "RCDC"),
+    ("/293/Board-of-Adjustment", "Board of Adjustment"),
+    ("/287/Utility-Commission", "Utility Commission"),
+    ("/291/Comprehensive-Residential-Code-ReviewCom", "CRCR"),
 ]
 
 
@@ -92,6 +106,7 @@ class RawHit:
     role_on_body: str
     body: str
     snippet: str
+    source_url: str = ""
 
 
 @dataclass
@@ -102,6 +117,7 @@ class Person:
     roles: list[str] = field(default_factory=list)
     aliases: list[str] = field(default_factory=list)
     snippets: list[tuple[str, str]] = field(default_factory=list)  # (body, snippet)
+    source_url: str = ""  # first page the person was seen on
 
 
 def fetch(path: str) -> str:
@@ -127,66 +143,29 @@ def _split_name(name: str) -> tuple[str, str]:
     return (" ".join(parts[:-1]), parts[-1])
 
 
-def _normalize_cpsf_role(raw_role: str) -> str:
-    """Turn the city's long CPSF role descriptors into short clean labels."""
-    r = raw_role.strip()
-    low = r.lower()
-    if low == "committee chair":
-        return "CPSF Chair"
-    m = re.match(r"^Council Member\s+(.+?)\s+Appointee\s*$", r, re.IGNORECASE)
-    if m:
-        appointer_surname = m.group(1).split()[-1]
-        return f"CPSF member (appointed by {appointer_surname})"
-    commission_map = [
-        ("park commission", "Parks delegate"),
-        ("planning and zoning commission", "P&Z delegate"),
-        ("utility commission", "Utility delegate"),
-        ("board of adjustment", "BOA delegate"),
-        ("rollingwood community development corporation", "RCDC delegate"),
-    ]
-    for prefix, label in commission_map:
-        if low.startswith(prefix):
-            return f"CPSF member ({label})"
-    m = re.match(r"^(.+?),\s*at\s*large\s*member\s*$", r, re.IGNORECASE)
-    if m:
-        affil = m.group(1).strip()
-        paren = re.search(r"\(([^)]+)\)", affil)
-        if paren:
-            affil = paren.group(1)
-        return f"CPSF at-large member ({affil})"
-    return f"CPSF {r}"
-
-
 def parse_directory(html: str) -> list[RawHit]:
+    """CivicEngage /m/directory: one <li> per person under #nav-people, with
+    name in a.fw-bold, position in div.d-sm-block, department links in
+    ul.departments."""
     soup = BeautifulSoup(html, "html.parser")
     hits: list[RawHit] = []
-    for h3 in soup.find_all("h3"):
-        dept = h3.get_text(strip=True)
-        if not dept:
+    pane = soup.select_one("#nav-people")
+    if pane is None:
+        return hits
+    for li in pane.select("ul.list-group > li.list-group-item"):
+        name_el = li.select_one("a.fw-bold")
+        if not name_el:
             continue
-        ul = h3.find_next_sibling("ul")
-        if ul is None:
-            # sometimes wrapped in a parent <div class="responsive">
-            parent = h3.find_parent()
-            if parent:
-                ul = parent.find("ul")
-        if ul is None:
+        name = _clean_name(name_el.get_text(" ", strip=True))
+        if not name or name.lower().startswith("vacant"):
             continue
-        for li in ul.find_all("li"):
-            classes = " ".join(li.get("class") or [])
-            if "views-row" not in classes:
-                continue
-            name_el = li.select_one(".views-field-title .field-content")
-            pos_el = li.select_one(".views-field-field-position .field-content")
-            if not name_el:
-                continue
-            name = _clean_name(name_el.get_text(" ", strip=True))
-            if not name or name.lower().startswith("vacant"):
-                continue
-            role = pos_el.get_text(" ", strip=True) if pos_el else ""
-            hits.append(RawHit(
-                name=name, role_on_body=role, body=dept, snippet=str(li)
-            ))
+        pos_el = li.select_one("div.d-sm-block")
+        role = pos_el.get_text(" ", strip=True) if pos_el else ""
+        depts = [a.get_text(" ", strip=True) for a in li.select("ul.departments a")]
+        hits.append(RawHit(
+            name=name, role_on_body=role,
+            body=", ".join(depts) or "Directory", snippet=str(li),
+        ))
     return hits
 
 
@@ -248,53 +227,6 @@ def parse_commission(html: str, body_name: str) -> list[RawHit]:
     return []
 
 
-def parse_cpsf(html: str) -> list[RawHit]:
-    """CPSF uses a <p> with <br>-separated 'Position N: Name, Role' lines."""
-    soup = BeautifulSoup(html, "html.parser")
-    header = None
-    for h in soup.find_all(["h2", "h3"]):
-        text = (h.get_text(" ") or "").strip().lower()
-        if "strike force members" in text:
-            header = h
-            break
-    if header is None:
-        return []
-    para = header.find_next("p")
-    if para is None:
-        return []
-    # Normalize <br> to newlines, then split.
-    for br in para.find_all("br"):
-        br.replace_with("\n")
-    raw_text = para.get_text("\n")
-    hits: list[RawHit] = []
-    for line in raw_text.splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        m = re.match(r"^Position\s+\d+:\s*(.+)$", line)
-        if not m:
-            continue
-        remainder = m.group(1).strip()
-        if not remainder or remainder.lower().startswith("vacant"):
-            continue
-        if "," in remainder:
-            head, tail = remainder.split(",", 1)
-            name = _clean_name(head)
-            role_label = tail.strip()
-        else:
-            name = _clean_name(remainder)
-            role_label = "Member"
-        if not name:
-            continue
-        hits.append(RawHit(
-            name=name,
-            role_on_body=_normalize_cpsf_role(role_label),
-            body="Comprehensive Plan Strike Force",
-            snippet=f"<p fragment>Position …: {remainder}</p>",
-        ))
-    return hits
-
-
 def assemble(hits: list[RawHit]) -> dict[str, Person]:
     people: dict[str, Person] = {}
     for h in hits:
@@ -303,7 +235,8 @@ def assemble(hits: list[RawHit]) -> dict[str, Person]:
             continue
         if key not in people:
             first, last = _split_name(h.name)
-            people[key] = Person(canonical_name=h.name, first=first, last=last)
+            people[key] = Person(canonical_name=h.name, first=first, last=last,
+                                 source_url=h.source_url)
         p = people[key]
         if h.role_on_body and h.role_on_body not in p.roles:
             p.roles.append(h.role_on_body)
@@ -315,13 +248,20 @@ def assemble(hits: list[RawHit]) -> dict[str, Person]:
 
 def collect_all() -> dict[str, Person]:
     all_hits: list[RawHit] = []
-    all_hits.extend(parse_directory(fetch("/directory")))
+    dir_hits = parse_directory(fetch(DIRECTORY_PATH))
+    if not dir_hits:
+        raise SystemExit(f"❌ No people parsed from {DIRECTORY_PATH} — site layout changed?")
+    for h in dir_hits:
+        h.source_url = BASE + DIRECTORY_PATH
+    all_hits.extend(dir_hits)
     for path, body in COMMISSION_PAGES:
         html = fetch(path)
-        if body == "Comprehensive Plan Strike Force":
-            all_hits.extend(parse_cpsf(html))
-        else:
-            all_hits.extend(parse_commission(html, body))
+        hits = parse_commission(html, body)
+        if not hits:
+            raise SystemExit(f"❌ No members parsed from {path} ({body}) — site layout changed?")
+        for h in hits:
+            h.source_url = BASE + path
+        all_hits.extend(hits)
     return assemble(all_hits)
 
 
@@ -343,26 +283,50 @@ def render_review(people: dict[str, Person]) -> str:
     return "\n".join(lines)
 
 
-def to_yaml(people: dict[str, Person]) -> str:
-    data = []
-    for canonical in sorted(people.keys(), key=str.casefold):
-        p = people[canonical]
-        data.append({
+def merge_into_roster(people: dict[str, Person], existing: list[dict]) -> list[dict]:
+    """Replace jurisdiction=Rollingwood entries with the fresh scrape; keep
+    every other entry as-is. Aliases already on the old Rollingwood entry
+    (ALIAS_MAP or scrape_tier2.py additions) are unioned onto the new one."""
+    old_aliases = {
+        e["canonical_name"]: e.get("aliases") or []
+        for e in existing if e.get("jurisdiction") == JURISDICTION
+    }
+    kept = [e for e in existing if e.get("jurisdiction") != JURISDICTION]
+    today = date.today().isoformat()
+    fresh = []
+    for p in people.values():
+        aliases = list(p.aliases)
+        for a in old_aliases.get(p.canonical_name, []):
+            if a not in aliases:
+                aliases.append(a)
+        fresh.append({
             "canonical_name": p.canonical_name,
             "first": p.first,
             "last": p.last,
-            "aliases": p.aliases,
+            "aliases": aliases,
             "role": "; ".join(p.roles),
             "source": "tier1",
-            "confidence": "confirmed",
+            "confidence": CONFIDENCE,
+            "jurisdiction": JURISDICTION,
+            "source_url": p.source_url,
+            "scraped_at": today,
         })
-    header = (
-        "# Tier 1 — Current Rollingwood officials (Council, commissioners, staff).\n"
-        "# Auto-generated by scripts/scrape_tier1.py.\n"
-        "# Source: rollingwoodtx.gov. Ground truth; name spellings authoritative.\n"
-        "# Re-run the scraper with --write to refresh.\n\n"
-    )
-    return header + yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=1000)
+    return sorted(kept + fresh, key=lambda e: e["canonical_name"].casefold())
+
+
+def read_roster() -> tuple[str, list[dict]]:
+    """Return (leading comment block, entries)."""
+    text = OUTPUT.read_text()
+    header_lines = []
+    for line in text.splitlines(keepends=True):
+        if line.startswith("#") or (header_lines and not line.strip()):
+            header_lines.append(line)
+            if not line.strip():
+                break
+        else:
+            break
+    header = "".join(header_lines)
+    return header, yaml.safe_load(text) or []
 
 
 def main() -> int:
@@ -375,7 +339,11 @@ def main() -> int:
     print(render_review(people))
 
     if args.write:
-        OUTPUT.write_text(to_yaml(people))
+        header, existing = read_roster()
+        merged = merge_into_roster(people, existing)
+        OUTPUT.write_text(
+            header + yaml.safe_dump(merged, sort_keys=False, allow_unicode=True, width=1000)
+        )
         print(f"\n✅ Wrote {OUTPUT}")
     else:
         print("(dry-run; pass --write to commit to tier1_officials.yml)")

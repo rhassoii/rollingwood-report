@@ -88,7 +88,7 @@ def _metaphone_codes(s: str) -> frozenset:
     return frozenset(c for c in (primary, secondary) if c)
 
 
-def lookup(name_from_transcript: str) -> Optional[str]:
+def lookup(name_from_transcript: str, exclude_sources: tuple = ()) -> Optional[str]:
     """Resolve a transcript name to a canonical roster name.
 
     Strategy:
@@ -96,10 +96,13 @@ def lookup(name_from_transcript: str) -> Optional[str]:
       2. Phonetic match: Double Metaphone codes overlap (primary OR secondary).
       3. Fuzzy match via rapidfuzz.fuzz.ratio (>= FUZZY_THRESHOLD).
     Returns the canonical_name on match, or None.
+
+    exclude_sources skips entries whose source is listed (e.g. ("tier2",) so
+    scrape_tier2.py doesn't resolve candidates against its own prior output).
     """
     if not name_from_transcript or not name_from_transcript.strip():
         return None
-    entries = _load_all()
+    entries = [e for e in _load_all() if e.source not in exclude_sources]
     if not entries:
         return None
 

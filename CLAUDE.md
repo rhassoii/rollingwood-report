@@ -37,7 +37,7 @@ for all current Rollingwood officials — mayor, council, city staff, and (via t
 - **Tier 1 (confirmed):** current officials scraped from rollingwoodtx.gov
   (`scripts/scrape_tier1.py`). Ground truth for canonical spellings.
 - **Tier 2 (confirmed / former_staff / former_council / non_resident):** historical
-  public speakers from packet-embedded minutes, last 24 months
+  public speakers from packet-embedded minutes since 2024-04-01 (fixed floor)
   (`scripts/scrape_tier2.py`). Cross-references Tier 1 and appends discovered
   variants to the matching Tier 1 entry's `aliases`.
 - **Tier 3 (likely_resident):** TCAD parcel owners from
