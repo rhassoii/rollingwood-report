@@ -85,21 +85,20 @@ scraped from the City directory (Tier 1, extended to adjacent bodies
 like West Lake Hills via TML city directories), historical public
 speakers from meeting packets since April 2024 (Tier 2), property
 owners in Rollingwood from Travis County appraisal data (Tier 3,
-likely residents), and names learned from past summaries via reader
-correction (Tier 4). The roster is cross-referenced by the pipeline
-during summarization; transcript misspellings are resolved to canonical
+likely residents), and names confirmed through reader corrections and
+review of past summaries (Tier 4). The roster is cross-referenced by
+the pipeline during summarization; transcript misspellings are resolved to canonical
 spellings where a match is found. The roster catches many phonetic
 errors but not all — see "Known limitations" below.
 
-### Committed for the Report's first beta edition
+**Reader corrections.** Readers send corrections to
+<rhassoii@gmail.com> or <jeffm031@gmail.com>. The operator checks each
+one against the meeting recording, with Claude Code's help. Confirmed
+name fixes are added to the roster (Tier 4) so the same error doesn't
+recur. This is a manual process; there is no automated correction
+pipeline.
 
-**A reader-driven correction pipeline.** Every issue of the Report will
-carry a mechanism for readers to submit corrections — an email reply
-address, at minimum — and corrections that land will be published in a
-subsequent issue. Confirmed names from the "Names to verify" appendix
-get promoted into the roster (Tier 4) so the same error doesn't recur.
-This pipeline is **not yet operational.** It is a commitment for the
-first beta edition.
+### Committed for the Report's first beta edition
 
 **Quarterly full-recording audit.** Each quarter I will select one
 published issue, watch the source meeting recording end to end, and
@@ -116,9 +115,9 @@ beta edition.
 A few commitments I'm making and intend to keep:
 
 - **Correction priority.** When I become aware of an error — from a
-  reader, from the quarterly audit, or from my own re-reading — I'll
-  publish a correction promptly. Corrections are surfaced in the next
-  issue and recorded in the repo.
+  reader, from the quarterly audit, or from my own re-reading — I check
+  it against the recording promptly. Confirmed name fixes go into the
+  roster so they don't recur.
 - **Public tooling.** The pipeline source, prompt, roster, and
   configuration stay in a public repository. The mechanics are open
   for review.
@@ -176,9 +175,9 @@ name these than gesture vaguely at "AI can make mistakes":
   "Prompt-tuning followup."
 
 - **No human pre-publication review.** Any error — factual,
-  attributional, editorial drift — reaches readers before the
-  correction pipeline catches it. The correction pipeline is a
-  post-hoc mechanism, not a pre-publication safeguard.
+  attributional, editorial drift — reaches readers before a reader
+  correction catches it. Reader corrections are a post-hoc mechanism,
+  not a pre-publication safeguard.
 
 - **The quarterly audit is a sample, not comprehensive coverage.** One
   issue per quarter will be compared end to end against the source
@@ -194,11 +193,8 @@ name these than gesture vaguely at "AI can make mistakes":
 
 ## How to contact and submit corrections
 
-Reply to any issue of the Report to submit a correction or question.
-Until the reader-driven correction pipeline is operational, I monitor
-replies manually. For corrections that identify a name that should be
-in the roster, I'll confirm the correct spelling and add it to Tier 4
-(learned names) so the same error doesn't recur.
-
-For non-urgent feedback or questions unrelated to a specific issue:
-<rhassoii@gmail.com> or <jeffm031@gmail.com>.
+Send corrections and questions to <rhassoii@gmail.com> or
+<jeffm031@gmail.com>. The operator checks each correction against the
+meeting recording, with Claude Code's help. For corrections that
+identify a name, the confirmed spelling is added to the roster (Tier 4,
+learned names) so the same error doesn't recur.
