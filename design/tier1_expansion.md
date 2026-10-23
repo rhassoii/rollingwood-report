@@ -77,7 +77,7 @@ config only — no code changes.
 ### 3. Refresh cadence — monthly via PR (future session)
 
 A scheduled GitHub Actions workflow will run the scrapers monthly and open
-a PR with roster diffs. Jeff reviews before changes land. The workflow
+a PR with roster diffs. The operator reviews before changes land. The workflow
 itself is not being built this session; today's work is: build the scraper,
 run it manually once, commit.
 

@@ -8,7 +8,7 @@
 # tier3_tcad.yml.
 #
 # Labels produced by LLM reading the CSV; ambiguous cases are flagged with
-# an `ambiguous:` field explaining the alternative reading. Jeff can re-label
+# an `ambiguous:` field explaining the alternative reading. The operator can re-label
 # by editing this file and re-running the test.
 #
 # Label rules used:

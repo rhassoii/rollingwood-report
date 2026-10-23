@@ -66,10 +66,11 @@ resolution on the next run.
 
 ### Git conventions
 
-- **No `Co-Authored-By: Claude` trailers on commits.** Jeff is the
-  operator; Claude is the tool. This applies to every commit in this
-  repo without exception. Rationale: the project's public
-  accountability story depends on Jeff being the single named human
+- **No `Co-Authored-By: Claude` trailers on commits.** The operator
+  (Ronald Hasso, since the October 2026 handoff from creator Jeff Marx)
+  is the responsible human; Claude is the tool. This applies to every
+  commit in this repo without exception. Rationale: the project's public
+  accountability story depends on a single named human being
   responsible for what ships. Attributing co-authorship to Claude
   muddies that claim.
 
@@ -85,4 +86,4 @@ resolution on the next run.
   `client_secret*.json` and tokens under `token*.json` are gitignored.
 - `data/packet_cache/` (Tier 2 packet downloads) is gitignored.
 - `prompts/summary_prompt.md` is the neutral-newsletter audience prompt
-  (not Jeff-as-candidate).
+  (not written from any individual's perspective).

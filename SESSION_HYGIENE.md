@@ -21,7 +21,7 @@ push, so the asymmetry of "minute-per-approval × many approvals" versus
 - `git add` and `git commit`, provided the files being added are
   (a) inside this project directory and (b) not in `.gitignore`. Draft
   commit messages inline as part of the work; no `Co-Authored-By: Claude`
-  trailer (per `CLAUDE.md` — Jeff is the sole named operator).
+  trailer (per `CLAUDE.md` — the operator is the sole named human).
 - Approving prefilter prompts inline for any of the above.
 
 ### Gates (always stop and ask)
