@@ -7,7 +7,7 @@ Pipeline:
   2. Download audio (MP3) via yt-dlp
   3. Transcribe via AssemblyAI (with speaker diarization)
   4. Summarize via Claude Opus 4.7 using the locked prompt
-  5. Save to Google Drive + email to Jeff
+  5. Save to Google Drive + email to the operator
   6. Record meeting ID so we never re-process
 
 Run locally:  python scripts/run.py
@@ -46,7 +46,7 @@ STATE_FILE = Path("processed_meetings.json")
 PROMPT_FILE = Path("prompts/summary_prompt.md")
 WORK_DIR = Path("workdir")
 DRIVE_FOLDER_NAME = "Rollingwood Reports"
-EMAIL_TO = "jeffm031@gmail.com"
+EMAIL_TO = "ronaldhasso@gmail.com, jeffm031@gmail.com"  # operator first
 
 # Only process videos whose title matches these (case-insensitive)
 MEETING_TITLE_KEYWORDS = [

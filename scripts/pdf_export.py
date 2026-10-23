@@ -189,14 +189,14 @@ _HTML_TEMPLATE = """<!DOCTYPE html>
   <hr class="masthead-rule" />
   <div class="masthead-sub">An independent summary of Rollingwood municipal meetings</div>
   <div class="masthead-issue">Issue: {issue_title}</div>
-  <div class="masthead-byline">Compiled by Jeff Marx, Rollingwood resident</div>
+  <div class="masthead-byline">Operated by Ronald Hasso · Created by Jeff Marx, handed off October 2026</div>
   <hr class="masthead-bottom-rule" />
 </div>
 <div class="prep-note" id="prepnote-elem">
   <strong>How this report is prepared.</strong> This report is compiled from the
   public recording of the meeting using AI-assisted transcription and
   summarization. Errors are possible; the official record is the City's archived
-  video. Feedback: jeffm031@gmail.com
+  video. Feedback: ronaldhasso@gmail.com, jeffm031@gmail.com
 </div>
 <span style="string-set: meetingdate '{meeting_date}'"></span>
 {body}
