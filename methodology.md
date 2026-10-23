@@ -1,12 +1,22 @@
 # Methodology
 
-I am Jeff Marx. I operate the Rollingwood Report, an automated pipeline
-that produces structured email briefings after each meeting of
-Rollingwood, Texas municipal bodies.
+The Rollingwood Report is an automated pipeline that produces
+structured email briefings after each meeting of Rollingwood, Texas
+municipal bodies.
+
+**Operator:** Ronald Hasso.
+
+The Rollingwood Report was created by Jeff Marx and handed off to Ronald
+Hasso in October 2026.
+
+> **TODO (Ronald Hasso):** This document is written in the first person.
+> That voice predates the handoff — the commitments below were written
+> by the Report's creator. Review them and adopt or revise them in your
+> own voice, then remove this note.
 
 This document explains what the Report is, how the pipeline works, what
-accountability structures back it, where my civic participation creates
-potential conflicts, and what known limitations readers should weigh.
+accountability structures back it, what the operator discloses, and
+what known limitations readers should weigh.
 
 ## What the Report is
 
@@ -113,7 +123,7 @@ A few commitments I'm making and intend to keep:
 - **Constrained scope.** The Report covers Rollingwood municipal
   meetings. It doesn't speculate about political races, campaign
   dynamics, or regional politics beyond what appeared on the agenda.
-- **Disclosure, not recusal.** See the next section.
+- **Operator disclosures.** See "Operator and disclosures" below.
 - **Resident addresses.** The Report does not publish residents' home
   addresses. Home addresses are never stored in the name roster and
   are never drawn from meeting packets or agendas. Where an agenda
@@ -122,38 +132,19 @@ A few commitments I'm making and intend to keep:
   without the street number. This is enforced by the summarization
   prompt and checked in the quarterly audit.
 
-## Conflicts of interest and disclosures
+## Operator and disclosures
 
-**Stance.** I participate in Rollingwood civic life. I've applied to
-serve on city bodies, and I may in the future hold appointed positions.
-I don't believe that participation disqualifies me from operating
-civic-journalism tooling about the same community. The alternative —
-withdrawing from civic participation in order to report on it — would
-hollow out both. I choose transparency instead: the Report discloses my
-current applications, appointments, and standing affiliations that
-touch municipal matters, and readers can weigh that disclosure when
-reading any given issue.
+The Rollingwood Report was created by Jeff Marx and handed off to Ronald
+Hasso in October 2026. Ronald Hasso is the current operator.
 
-**Current applications and appointments** to Rollingwood bodies are
-tracked in `config/disclosures.yml` in this repo. That file is the
-single source of truth for dynamic civic-status disclosures; it updates
-whenever my status changes, and it carries a `last_reviewed` date that
-I refresh on every touch and on a quarterly audit. The file is rendered
-into every issue of the Report, so the disclosure is not buried —
-readers see it in the same email as the meeting summary.
-
-**Standing disclosures** are stable affiliations that don't change with
-my civic status. The following paragraph is rendered into each issue of
-the Report alongside the dynamic list from `config/disclosures.yml`:
+**Operator disclosures** — civic applications, appointments, and
+affiliations that touch municipal matters — are tracked in
+`config/disclosures.yml` in this repo. Rendering that file into each
+issue is planned but not yet implemented.
 
 <!-- STANDING_DISCLOSURE_START -->
-I lead RW AI Lab, a local learning community focused on practical
-applications of large language models. The Rollingwood Report is itself
-produced by a large-language-model pipeline. That creates a recursive
-situation: when AI policy or municipal technology comes before a
-Rollingwood body, this AI-produced report is covering AI-related civic
-matters. Readers should know that and weigh it when reading AI-related
-items.
+TODO (Ronald Hasso): operator disclosures to be completed by the
+operator. Until then, no operator disclosures are published.
 <!-- STANDING_DISCLOSURE_END -->
 
 <!-- Implementation note for render_disclosures() in scripts/run.py
@@ -209,4 +200,4 @@ in the roster, I'll confirm the correct spelling and add it to Tier 4
 (learned names) so the same error doesn't recur.
 
 For non-urgent feedback or questions unrelated to a specific issue:
-<rollingwoodreport@gmail.com>.
+<ronaldhasso@gmail.com> or <jeffm031@gmail.com>.

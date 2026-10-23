@@ -1,6 +1,13 @@
 # Rollingwood Report
 
-Automated pipeline that watches the [City of Rollingwood YouTube channel](https://www.youtube.com/@cityofrollingwoodtexas), transcribes new council/commission meetings, and emails a structured briefing to Jeff. Runs daily in GitHub Actions.
+Automated pipeline that watches the [City of Rollingwood YouTube channel](https://www.youtube.com/@cityofrollingwoodtexas), transcribes new council/commission meetings, and emails a structured briefing to the operator. Runs daily in GitHub Actions.
+
+## Operator & contact
+
+- **Operator:** Ronald Hasso.
+- The Rollingwood Report was created by Jeff Marx and handed off to Ronald Hasso in October 2026.
+- **Contact / corrections:** ronaldhasso@gmail.com, jeffm031@gmail.com
+- **Operator disclosures:** TODO (Ronald Hasso) — to be completed by the operator; see `config/disclosures.yml` and `methodology.md`.
 
 ## Architecture
 
@@ -41,7 +48,7 @@ pip install -r requirements.txt
 python scripts/bootstrap_google_auth.py
 ```
 
-A browser opens, you sign in as jeffm031@gmail.com, grant Drive + Gmail access. The script prints a JSON blob — copy it.
+A browser opens, you sign in with the Google account the pipeline sends from (currently jeffm031@gmail.com), grant Drive + Gmail access. The script prints a JSON blob — copy it.
 
 ### 3. Push to GitHub and add secrets
 

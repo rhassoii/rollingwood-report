@@ -1,23 +1,18 @@
-# config/disclosures.yml — dynamic civic-status disclosures
+# config/disclosures.yml — operator disclosures
 #
-# Source of truth for Jeff's current applications and appointments to
-# Rollingwood municipal bodies. Read by the pipeline at summary-
-# generation time and rendered as a standing block in every issue of
-# the Rollingwood Report.
+# Source of truth for the current operator's civic applications,
+# appointments, and affiliations that touch Rollingwood municipal
+# matters. Intended to be rendered into each issue of the Rollingwood
+# Report (rendering is not yet implemented — see methodology.md).
 #
-# Scope: DYNAMIC civic-status only. Stable standing disclosures
-# (e.g., RW AI Lab affiliation) live in methodology.md inside marked
-# anchor comments and are read from there at render time. Do NOT
-# extend this file to hold stable content — the stable/dynamic
-# separation is the whole point of having two sources.
+# Provenance: The Rollingwood Report was created by Jeff Marx and handed
+# off to Ronald Hasso in October 2026.
 #
 # Update cadence:
-#   - Whenever civic status changes (new application, appointment,
-#     term end, resignation).
+#   - Whenever the operator's civic status changes (new application,
+#     appointment, term end, resignation).
 #   - Touch `last_reviewed` on every update AND on a quarterly audit
-#     even when nothing else changed. Staleness prevention — see
-#     NOTES.md "Project-knowledge hygiene" and "Memory hygiene audit"
-#     for the pattern we're guarding against.
+#     even when nothing else changed.
 #
 # Fail-loud on malformed input (pipeline behavior contract):
 #   - File missing, unreadable, or YAML-unparseable: pipeline aborts.
@@ -26,21 +21,13 @@
 #   - Silent omission of the disclosure block is the worst failure
 #     mode; failed-send forces operator attention.
 #
-# See methodology.md for the conflicts-of-interest stance
-# (disclosure-not-recusal) and for the stable standing-disclosure
-# paragraph rendered alongside this file's content.
+# See methodology.md ("Operator and disclosures") for the
+# standing-disclosure paragraph.
 
-last_reviewed: "2026-04-23"
+last_reviewed: "2026-10-23"
 
-disclosures:
-  - role: "Applicant"
-    body: "Rollingwood Community Development Corporation"
-    body_short: "RCDC"
-    status: applicant
-    since: "2026-04-18"
+operator: "Ronald Hasso"
 
-  - role: "Applicant"
-    body: "Rollingwood Parks Commission"
-    body_short: "Parks Commission"
-    status: applicant
-    since: "2026-04-18"
+# TODO (Ronald Hasso): list your disclosures below, then update
+# last_reviewed. None have been written on your behalf.
+disclosures: []
