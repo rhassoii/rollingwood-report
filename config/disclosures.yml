@@ -28,6 +28,13 @@ last_reviewed: "2026-10-23"
 
 operator: "Ronald Hasso"
 
-# Ronald Hasso reports no affiliations requiring disclosure (as of October 2026).
-statement: "Ronald Hasso reports no affiliations requiring disclosure (as of October 2026)."
-disclosures: []
+statement: "Ronald Hasso is a former member of the Rollingwood Utility Commission and the Comprehensive Plan Strike Force (inactive)."
+disclosures:
+  - role: "Former member"
+    body: "Rollingwood Utility Commission"
+    body_short: "Utility Commission"
+    status: former
+  - role: "Former member"
+    body: "Comprehensive Plan Strike Force (inactive)"
+    body_short: "CPSF"
+    status: former

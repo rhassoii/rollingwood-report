@@ -143,7 +143,7 @@ affiliations that touch municipal matters — are tracked in
 issue is planned but not yet implemented.
 
 <!-- STANDING_DISCLOSURE_START -->
-Ronald Hasso reports no affiliations requiring disclosure (as of October 2026).
+Ronald Hasso is a former member of the Rollingwood Utility Commission and the Comprehensive Plan Strike Force (inactive).
 <!-- STANDING_DISCLOSURE_END -->
 
 <!-- Implementation note for render_disclosures() in scripts/run.py
