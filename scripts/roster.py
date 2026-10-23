@@ -26,6 +26,11 @@ TIER_FILES = [
     ("tier4", "tier4_learned.yml"),
 ]
 FUZZY_THRESHOLD = 85
+# Floor on spelling similarity for a phonetic match. Double Metaphone alone
+# conflates unrelated names ("Veronica" and "Franke" are both FRNK), and a
+# bare surname is a search key, so a first name could resolve to a stranger.
+# Real garbles score well above this (Reiter/Ryder 55, Speital/Speitel 86).
+PHONETIC_MIN_RATIO = 50
 
 
 @dataclass
@@ -93,7 +98,8 @@ def lookup(name_from_transcript: str, exclude_sources: tuple = ()) -> Optional[s
 
     Strategy:
       1. Case-insensitive exact match on canonical_name, aliases, or last.
-      2. Phonetic match: Double Metaphone codes overlap (primary OR secondary).
+      2. Phonetic match: Double Metaphone codes overlap (primary OR secondary)
+         and fuzz.ratio >= PHONETIC_MIN_RATIO.
       3. Fuzzy match via rapidfuzz.fuzz.ratio (>= FUZZY_THRESHOLD).
     Returns the canonical_name on match, or None.
 
@@ -121,7 +127,8 @@ def lookup(name_from_transcript: str, exclude_sources: tuple = ()) -> Optional[s
     query_codes = _metaphone_codes(query)
     if query_codes:
         for key, e in pool:
-            if _metaphone_codes(key) & query_codes:
+            if (_metaphone_codes(key) & query_codes
+                    and fuzz.ratio(query, key) >= PHONETIC_MIN_RATIO):
                 return e.canonical_name
 
     # 3. Fuzzy
