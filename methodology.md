@@ -53,11 +53,11 @@ currently deployed.) Each stage is automated:
 5. **Deliver.** The summary is archived to Google Drive (markdown +
    PDF), and an email is sent to readers.
 
-There is no human editorial review between transcription and delivery.
-I operate the pipeline — I decide which meetings count as in-scope,
-when to run it manually for a missed meeting, and what gets changed in
-the prompt — but no issue is reviewed by a human before it reaches a
-reader's inbox.
+Before posting, the operator runs a brief check per `HANDOFF.md`:
+spot-checking timestamp links, dates, resident addresses, and the
+"Names to verify" appendix. There is no full editorial review or
+rewriting. I operate the pipeline — I decide which meetings count as
+in-scope, when to run it, and what gets changed in the prompt.
 
 Pipeline source is at <https://github.com/jeffm031/rollingwood-report>.
 The prompt, roster, and configuration are public.
@@ -174,10 +174,12 @@ name these than gesture vaguely at "AI can make mistakes":
   and in-progress diagnostic work live in `NOTES.md` under
   "Prompt-tuning followup."
 
-- **No human pre-publication review.** Any error — factual,
-  attributional, editorial drift — reaches readers before a reader
-  correction catches it. Reader corrections are a post-hoc mechanism,
-  not a pre-publication safeguard.
+- **Only a brief pre-publication check.** Before posting, the operator
+  spot-checks timestamp links, dates, resident addresses, and the
+  "Names to verify" appendix per `HANDOFF.md`. There is no full
+  editorial review or rewriting, so other errors — factual,
+  attributional, editorial drift — can reach readers before a reader
+  correction catches them.
 
 - **The quarterly audit is a sample, not comprehensive coverage.** One
   issue per quarter will be compared end to end against the source
